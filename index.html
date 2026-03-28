@@ -3,32 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рулетка слов - Тестирование Qwen 3.5</title>
+    <title>🎡 Рулетка слов - Тестирование Qwen 3.5</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Фоновые частицы -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
-        <h1>🎡 Рулетка слов</h1>
-        <p class="subtitle">Проект для тестирования Qwen 3.5</p>
+        <div class="header-glow"></div>
+        <h1><span class="neon-text">🎡 РУЛЕТКА СЛОВ</span></h1>
+        <p class="subtitle">Проект для тестирования <span class="qwen-highlight">Qwen 3.5</span></p>
         
-        <div class="wheel-container">
-            <canvas id="wheel" width="500" height="500"></canvas>
+        <div class="wheel-wrapper">
+            <div class="wheel-border">
+                <div class="lights" id="lights"></div>
+                <canvas id="wheel" width="500" height="500"></canvas>
+            </div>
             <div class="pointer"></div>
+            <div class="center-circle">
+                <span class="spin-icon">🎯</span>
+            </div>
         </div>
         
         <div class="controls">
-            <button id="spinBtn" class="spin-button">🔄 Крутить рулетку!</button>
+            <button id="spinBtn" class="spin-button">
+                <span class="btn-text">🚀 КРУТИТЬ!</span>
+                <span class="btn-glow"></span>
+            </button>
             <div id="result" class="result"></div>
         </div>
         
         <div class="words-section">
-            <h2>📝 Ваши слова</h2>
+            <h2><span class="section-icon">📝</span> Ваши слова</h2>
             <div class="input-group">
-                <input type="text" id="wordInput" placeholder="Введите слово..." />
+                <input type="text" id="wordInput" placeholder="Введите слово и нажмите Enter..." />
                 <button id="addWordBtn" class="add-button">➕ Добавить</button>
             </div>
             <div id="wordsList" class="words-list"></div>
-            <button id="clearBtn" class="clear-button">🗑️ Очистить все</button>
+            <button id="clearBtn" class="clear-button">🗑️ Очистить всё</button>
+        </div>
+        
+        <!-- Секретная кнопка VPN -->
+        <div class="vpn-section">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="vpn-button" title="Бесплатный быстрый VPN">
+                <span class="vpn-icon">🔒</span>
+                <span class="vpn-text">БЕСПЛАТНЫЙ VPN</span>
+                <span class="vpn-badge">PRO</span>
+            </a>
         </div>
     </div>
     
