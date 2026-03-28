@@ -89,10 +89,13 @@ function drawWheel() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+    // Поворачиваем на -90 градусов, чтобы первый сектор был сверху под указателем
+    const offsetAngle = -Math.PI / 2;
+    
     // Рисуем сектора с эффектом свечения
     for (let i = 0; i < words.length; i++) {
-        const startAngle = i * sliceAngle;
-        const endAngle = (i + 1) * sliceAngle;
+        const startAngle = i * sliceAngle + offsetAngle;
+        const endAngle = (i + 1) * sliceAngle + offsetAngle;
         
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
@@ -237,10 +240,11 @@ function spinWheel() {
         isSpinning = false;
         spinBtn.disabled = false;
         
-        // Вычисляем победителя
+        // Вычисляем победителя (учитываем поворот на -90 градусов)
         const normalizedRotation = currentRotation % 360;
         const sliceAngle = 360 / words.length;
-        const winningIndex = Math.floor(normalizedRotation / sliceAngle);
+        // Корректируем индекс с учетом начального поворота на 90 градусов
+        const winningIndex = Math.floor(((normalizedRotation + 90) % 360) / sliceAngle);
         
         const winner = words[winningIndex];
         resultDiv.textContent = `🎉 ${winner} 🎉`;
